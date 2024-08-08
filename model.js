@@ -42,22 +42,16 @@ const userSchema = new mongoose.Schema({
     match: [/\S+@\S+\.\S+/, "Email format is invalid"],
   },
   address: { 
+    street:{
       type: String,
-      required: [true, "address is required"],
+      required: [true, "street is required"],
       validate: {
         validator: isValidStreet,
         message:
-          "Street must contain at least one alphabetic character or special character and can include numbers, spaces, commas, periods, and hyphens",
+          "Street must contain at least one alphabetic character",
     },
-   street: {
-        type: String,
-        required: [true, "Street is required"],
-        validate: {
-          validator: isValidStreet,
-          message:
-            "Street must contain at least one alphabetic character",
-        },
-      }, 
+  },
+    
     city: {
       type: String,
       required: [true, "City is required"],
