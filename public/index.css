@@ -10,7 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #2c930a;
+    background-color: #b1c9a9;
     overflow: hidden;
     padding: 20px 0;
   }
@@ -70,7 +70,7 @@
     margin-top: 10px;
     font-size: 24px;
     font-weight: bold;
-    background: linear-gradient(45deg, #31a227, #9c11b8);
+    background: linear-gradient(45deg, #769473, #9c11b8);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
