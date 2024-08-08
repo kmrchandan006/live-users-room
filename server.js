@@ -13,11 +13,11 @@ const server = http.createServer(app);
 const io = socketIO(server);
 
 connectDB();
-// app.use(
-//   cors({
-//     origin: "https://live-users-room.onrender.com",
-//   })
-// );
+app.use(
+  cors({
+    origin: "https://live-users-room-ezi9.onrender.com",
+  })
+);
 
 app.use(cors());
 app.use(bodyParser.json());

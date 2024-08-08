@@ -59,7 +59,7 @@
           const email = $(this).data("email");
           $.ajax({
             type: "GET",
-            url: `http://localhost:4000/api/users/${email}`,
+            url: `https://live-users-room-ezi9.onrender.com/api/users/${email}`,
             success: function (user) {
               let userDetails = `<p>Email: ${user.emailId}</p>`;
               userDetails += `<p>Name: ${user.firstName} ${user.lastName}</p>`;
