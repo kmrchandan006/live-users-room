@@ -1,0 +1,77 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  body,
+  html {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2c333f;
+    overflow: hidden;
+    padding: 20px 0;
+  }
+  
+  #userForm {
+    width: 400px;
+    padding: 20px;
+    background-color: #022b32;
+    border: 2px solid #37484d;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(71, 71, 169, 0.7);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  #userForm input,
+  #userForm button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid rgba(210, 214, 140, 0.9);
+    border-radius: 3px;
+    border-radius: 5px;
+    background-color: #7ea7b5;
+    box-shadow: 0 0 5px rgba(210, 214, 140, 0.9);
+  }
+  #userForm input::placeholder {
+    color: #9a3737;
+    font-size: 15px;
+    font-family: "Courier New", Courier, monospace;
+  }
+  
+  #userForm button {
+    font-family: "Courier New", Courier, monospace;
+    background-color: #026144;
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(70, 68, 68, 0.5);
+  }
+  #userForm button:hover {
+    background-color: #06d6a0;
+  }
+  #userForm input:-webkit-autofill,
+  #userForm input:-webkit-autofill:hover,
+  #userForm input:-webkit-autofill:focus,
+  #userForm input:-webkit-autofill:active {
+    background-color: #7ea7b5 !important;
+    color: #022b32;
+    -webkit-box-shadow: 0 0 5px rgba(210, 214, 140, 0.9) inset !important;
+    box-shadow: 0 0 5px rgba(210, 214, 140, 0.9) inset !important;
+  }
+  #userForm h2 {
+    font-family: "Courier New", Courier, monospace;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ff6f61, #d742f4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+  }

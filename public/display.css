@@ -1,0 +1,126 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #7887a2;
+    overflow: hidden;
+  }
+  
+  h2 {
+    font-size: 1.5em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  
+  .scrollable {
+    overflow-y: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    max-width: 800px;
+    margin: 20px auto;
+    border: 2px solid #37484d;
+    background-color: #022b32;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  th,
+  td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #026144;
+    color: white;
+  }
+  
+  td {
+    background-color: #7ea7b5;
+    color: #022b32;
+  }
+  
+  .user-status {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .user-status.online {
+    background-color: greenyellow;
+  }
+  
+  .user-status.offline {
+    background-color: red;
+  }
+  
+  tr:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  #userDetailsPopup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #a0cbcf;
+    border: 1px solid #7a7171;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(22, 177, 189, 0.832);
+    z-index: 1000;
+    width: 90%;
+    max-width: 500px;
+    box-sizing: border-box;
+  }
+  
+  #userDetailsContent {
+    margin-bottom: 20px;
+  }
+  
+  #closePopup {
+    padding: 10px 20px;
+    background-color: #5180b1;
+    color: #bf10108e;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  #closePopup:hover {
+    background-color: #4778ac;
+  }
+  
+  @media (max-width: 600px) {
+    h2 {
+      font-size: 1.5em;
+    }
+    #userList tr {
+      font-size: 14px;
+    }
+    #closePopup {
+      padding: 8px;
+    }
+  }

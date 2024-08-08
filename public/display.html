@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>User Room</title>
+    <link rel="stylesheet" href="display.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <h2>Live Users in Room</h2>
+    <div class="scrollable">
+      <table id="userTable">
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Socket ID</th>
+          </tr>
+        </thead>
+        <tbody id="userList"></tbody>
+      </table>
+    </div>
+
+    <div id="userDetailsPopup">
+      <div id="userDetailsContent"></div>
+      <button id="closePopup">Close</button>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        const socket = io();
+        socket.on("connect", function () {
+          const storedUser = JSON.parse(localStorage.getItem("user"));
+          if (storedUser) {
+            socket.emit("joinRoom", storedUser);
+          }
+        });
+
+        socket.on("disconnect", function () {});
+        socket.on("updateUserList", function (usersInRoom) {
+          $("#userList").empty();
+          for (const email in usersInRoom) {
+            const user = usersInRoom[email];
+            const status = user.socketId ? "online" : "offline";
+            const statusColor = user.socketId ? "greenyellow" : "red";
+            $("#userList").append(
+              `<tr data-email="${user.emailId}">
+                <td>${user.emailId}</td>
+                <td><span class="user-status" style="background-color: ${statusColor};"></span>${
+                status.charAt(0).toUpperCase() + status.slice(1)
+              }</td>
+                <td>${user.socketId || "-"}</td>
+              </tr>`
+            );
+          }
+        });
+        $("#userList").on("click", "tr", function () {
+          const email = $(this).data("email");
+          $.ajax({
+            type: "GET",
+            url: `http://localhost:4000/api/users/${email}`,
+            success: function (user) {
+              let userDetails = `<p>Email: ${user.emailId}</p>`;
+              userDetails += `<p>Name: ${user.firstName} ${user.lastName}</p>`;
+              userDetails += `<p>Mobile No: ${user.mobileNo}</p>`;
+              userDetails += `<p>Address: ${user.address.street}, ${user.address.city}, ${user.address.state}, ${user.address.country}</p>`;
+              userDetails += `<p>Login ID: ${user.loginId}</p>`;
+              $("#userDetailsContent").html(userDetails);
+              $("#userDetailsPopup").show();
+            },
+            error: function (xhr) {
+              alert("Error fetching user details");
+            },
+          });
+        });
+        $("#closePopup").click(function () {
+          $("#userDetailsPopup").hide();
+        });
+        socket.on("userAdded", function (userData) {});
+      });
+    </script>
+  </body>
+</html>
