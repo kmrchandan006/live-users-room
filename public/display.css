@@ -14,7 +14,7 @@
   
   h2 {
     font-size: 1.5em;
-    color: #333;
+    color: #c70bba;
     text-align: center;
     margin-bottom: 1em;
   }
@@ -32,10 +32,10 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     max-width: 800px;
     margin: 20px auto;
-    border: 2px solid #37484d;
-    background-color: #022b32;
+    border: 2px solid #b2a710;
+    background-color: #88354a;
     border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(7, 182, 179, 0.2);
   }
   
   th,
@@ -46,13 +46,13 @@
   }
   
   th {
-    background-color: #026144;
+    background-color: #070980;
     color: white;
   }
   
   td {
-    background-color: #7ea7b5;
-    color: #022b32;
+    background-color: #609c0b;
+    color: #07ad33;
   }
   
   .user-status {
