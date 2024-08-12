@@ -39,7 +39,7 @@ const userSchema = new mongoose.Schema({
     //   /^[a-zA-Z0-9._%+-]+@gmail\.com$/,
     //   "Email format is invalid. Only @gmail.com is accepted",
     // ],
-    match: [/\S+@\S+\N+\.\S+/, "Email format is invalid"],
+    match: [/\S+@\S+\N+\.\S+/, "Email format is valid"],
   },
   address: { 
     street:{
